@@ -7,7 +7,7 @@ const bodyParser = require("body-parser");
 
 const { response } = require('express');
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
@@ -41,20 +41,23 @@ app.post('/api/loadFacilityInfo', (req, res) => {
 	let connection = mysql.createConnection(config);
 	console.log('called')
 
-	let sql = `SELECT * FROM facilitiesTable`;
+	let sql = `SELECT * FROM d3rai.facilitiesTable`;
 	
 
-	connection.query(sql, data, (error, results, fields) => {
+	connection.query(sql, (error, results, fields) => {
+		console.log('here')
 		if (error) {
 			return console.error(error.message);
 		}
 
 		let string = JSON.stringify(results);
 		//let obj = JSON.parse(string);
+		console.log( results)
+		console.log(string)
 		res.send({ express: string });
 	});
 	connection.end();
-});
+});  
 
 
 

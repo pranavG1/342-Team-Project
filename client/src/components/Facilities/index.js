@@ -17,7 +17,8 @@ const loadFacilities = () => {
   callApiLoadFacilities()
   .then(res => {
       var parsed = JSON.parse(res.express);
-      displayUpdates(parsed)
+      console.log(parsed)
+      DisplayUpdates(parsed)
     }
   ).then(console.log())
 }
@@ -25,19 +26,21 @@ const loadFacilities = () => {
 const callApiLoadFacilities = async (props) => {
   
   const url = serverURL + "/api/loadFacilityInfo";
-  const response = await fetch(url, {method: "POST", headers: {
-    "Content-Type": "application/json",
-  },body: JSON.stringify({})});
+  const response = await fetch(url, {method: "POST"
+
+  }
+  )
   const body = await response.json();
   if (response.status !== 200) throw Error(body.message);
+  console.log(body)
   return body;
 }
 
-const displayUpdates = (props) =>{
+const DisplayUpdates = (facilityList) =>{
   return(
-    
     <div>
-      {props} test
+
+      {facilityList.facilityID}
     </div>
   )
   }
@@ -102,7 +105,9 @@ return (
 
 <div><NavBar></NavBar>
     <div><FacilitySelection></FacilitySelection>
-    <OpenHouseSports></OpenHouseSports></div>
+    <OpenHouseSports></OpenHouseSports>
+    <DisplayUpdates>
+      </DisplayUpdates></div>
    
     </div>
   )
@@ -113,7 +118,7 @@ return (
 
 
 
-
+ 
 
 
 
