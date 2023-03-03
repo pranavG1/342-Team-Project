@@ -4,7 +4,62 @@ import Paper from "@material-ui/core/Paper";
 import {FormControl, MenuItem, Select, InputLabel, TextField, RadioGroup, FormLabel, Radio, FormControlLabel, Button, FormHelperText} from "@material-ui/core/"
 import React from "react"; 
 import NavBar from "../Navigation/Nav";
- 
+import CssBaseline from "@material-ui/core/CssBaseline";
+import { MuiThemeProvider, createTheme } from "@material-ui/core/styles"; 
+
+const fetch = require("node-fetch");
+
+const opacityValue = 0.9;
+
+const theme = createTheme({
+  palette: {
+    type: 'dark',
+    background: {
+      default: "#000000"
+    },
+    primary: {
+      main: "#FFFFAA",
+    },
+    secondary: {
+      main: "#E4B429",
+    },
+  },
+});
+
+const styles = theme => ({
+  root: {
+    body: {
+      backgroundColor: "#000000",
+      opacity: opacityValue,
+      overflow: "hidden",
+    },
+  },
+  mainMessage: {
+    opacity: opacityValue,
+  },
+
+  mainMessageContainer: {
+    marginTop: "20vh",
+    marginLeft: theme.spacing(20),
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: theme.spacing(4),
+    },
+  },
+  paper: {
+    overflow: "hidden",
+  },
+  message: {
+    opacity: opacityValue,
+    maxWidth: 250,
+    paddingBottom: theme.spacing(2),
+  },
+
+});
+
+
+
+
+
 const serverURL = ''
  export default function Facilities(){
 
@@ -49,7 +104,7 @@ const DisplayUpdates = (facilityList) =>{
 const FacilitySelection = (props) =>{
   return(
     
-    <FormControl style={{marginBottom: "50px", width: "30%"}}>
+    <ormControl style={{marginBottom: "600px", width: "30%"}}>
         <InputLabel id="movieValue">Select A Facility</InputLabel>
         <Select
           displayEmpty
@@ -66,7 +121,7 @@ const FacilitySelection = (props) =>{
           <MenuItem value={30}>E7 - Engineering building at the north west side of the campus </MenuItem>
         </Select>
         <FormHelperText error>{props.Error ? "Please select a facility" : ""}</FormHelperText>
-      </FormControl>
+      </ormControl>
   )
   }
 
@@ -74,7 +129,7 @@ const FacilitySelection = (props) =>{
 
   const OpenHouseSports = (props) =>{
     return(
-    <FormControl style={{marginBottom: "100px", width: "30%"}}>
+    <FormControl style={{marginBottom: "400px", marginLeft:" 300px", width: "30%"}}>
           <InputLabel id="movieValue">Select A Open House Sport</InputLabel>
           <Select
             displayEmpty
@@ -90,11 +145,35 @@ const FacilitySelection = (props) =>{
           <FormHelperText error>{props.Error ? "Please select a Open House Sport" : ""}</FormHelperText>
         </FormControl>
     )
+
+    
    
  
 
 
   
+}
+
+const FacilityTime = (props) =>{
+  return(
+  <FormControl style={{marginBottom: "300px", marginLeft:" 200px", width: "30%"}}>
+    
+        <InputLabel id="movieValue">Select A Time Period</InputLabel>
+        <Select
+          displayEmpty
+          inputProps={{ 'aria-label': 'Without label' }}
+        >
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          <MenuItem value={10}>Morning (8:30 - 12:30)</MenuItem>
+          <MenuItem value={20}>Afternoon(12:30 - 5:00)</MenuItem>
+          <MenuItem value ={30}>Evening (5:00 - 8:00)</MenuItem>
+          <MenuItem value ={40}>Night (8:00 - 11:00)</MenuItem>
+        </Select>
+        <FormHelperText error>{props.Error ? "Please select a time period" : ""}</FormHelperText>
+      </FormControl>
+  )
 }
 
 ///////ACTUAL DISPLAY
@@ -104,9 +183,18 @@ return (
 
 
 <div><NavBar></NavBar>
+<CssBaseline />
+           
+            
+
+            <Grid></Grid>
+
     <div><FacilitySelection></FacilitySelection>
     <OpenHouseSports></OpenHouseSports>
+    <FacilityTime></FacilityTime>
+    
     <DisplayUpdates>
+      
       </DisplayUpdates></div>
    
     </div>
