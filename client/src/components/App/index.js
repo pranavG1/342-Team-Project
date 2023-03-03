@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import Paper from "@material-ui/core/Paper";
+import {FormControl, MenuItem, Select, InputLabel, TextField, RadioGroup, FormLabel, Radio, FormControlLabel, Button, FormHelperText} from "@material-ui/core/"
 import {
   BrowserRouter as Router,
   Route,
@@ -6,6 +10,7 @@ import {
 } from 'react-router-dom';
 
 import Home from '../Home';
+import Facilities from '../Facilities';
 import PrivateRoute from '../Navigation/PrivateRoute.js';
 
 
@@ -33,7 +38,7 @@ class App extends Component {
     return (
 	  <Router>
 	    <div>
-        <PrivateRoute exact path="/" component={Home}/>
+        <PrivateRoute exact path="/" component={Facilities}/>
 	    </div>
 	  </Router>
     );
