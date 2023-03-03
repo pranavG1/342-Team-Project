@@ -37,7 +37,7 @@ const displayUpdates = (props) =>{
   return(
     
     <div>
-      {props}
+      {props} test
     </div>
   )
   }
