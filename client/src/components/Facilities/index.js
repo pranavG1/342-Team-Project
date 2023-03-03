@@ -5,9 +5,42 @@ import {FormControl, MenuItem, Select, InputLabel, TextField, RadioGroup, FormLa
 import React from "react"; 
 import NavBar from "../Navigation/Nav";
  
- 
+const serverURL = ''
  export default function Facilities(){
 
+React.useEffect(() => {
+  loadFacilities();
+})
+
+const loadFacilities = () => {
+    
+  callApiLoadFacilities()
+  .then(res => {
+      var parsed = JSON.parse(res.express);
+      displayUpdates(parsed)
+    }
+  ).then(console.log())
+}
+
+const callApiLoadFacilities = async (props) => {
+  
+  const url = serverURL + "/api/loadFacilityInfo";
+  const response = await fetch(url, {method: "POST", headers: {
+    "Content-Type": "application/json",
+  },body: JSON.stringify({})});
+  const body = await response.json();
+  if (response.status !== 200) throw Error(body.message);
+  return body;
+}
+
+const displayUpdates = (props) =>{
+  return(
+    
+    <div>
+      {props}
+    </div>
+  )
+  }
 
 
 const FacilitySelection = (props) =>{
@@ -54,7 +87,8 @@ const FacilitySelection = (props) =>{
           <FormHelperText error>{props.Error ? "Please select a Open House Sport" : ""}</FormHelperText>
         </FormControl>
     )
-  
+   
+ 
 
 
   
@@ -79,7 +113,7 @@ return (
 
 
 
- )
+ 
 
 
 

@@ -7,7 +7,7 @@ const bodyParser = require("body-parser");
 
 const { response } = require('express');
 const app = express();
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 5000;
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
@@ -23,6 +23,26 @@ app.post('/api/loadUserSettings', (req, res) => {
 	console.log(sql);
 	let data = [userID];
 	console.log(data);
+
+	connection.query(sql, data, (error, results, fields) => {
+		if (error) {
+			return console.error(error.message);
+		}
+
+		let string = JSON.stringify(results);
+		//let obj = JSON.parse(string);
+		res.send({ express: string });
+	});
+	connection.end();
+});
+
+app.post('/api/loadFacilityInfo', (req, res) => {
+
+	let connection = mysql.createConnection(config);
+	console.log('called')
+
+	let sql = `SELECT * FROM facilitiesTable`;
+	
 
 	connection.query(sql, data, (error, results, fields) => {
 		if (error) {
