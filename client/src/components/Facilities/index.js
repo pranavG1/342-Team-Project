@@ -22,16 +22,39 @@ const FacilitySelection = (props) =>{
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={10}>Pac!</MenuItem>
-          <MenuItem value={20}>CIF</MenuItem>
-          <MenuItem value={20}>SLC</MenuItem>
-          <MenuItem value={20}>DC</MenuItem>
-          <MenuItem value={20}>DP</MenuItem>
-          <MenuItem value={30}>E7</MenuItem>
+          <MenuItem value={10}>PAC - Athletics facility at the right side of the campus </MenuItem>
+          <MenuItem value={20}>CIF - Athletics facility at southwest side of the campus </MenuItem>
+          <MenuItem value={20}>SLC - Student life centre towards the west side of campus </MenuItem>
+          <MenuItem value={20}>DC - library at the north west side of the campus </MenuItem>
+          <MenuItem value={20}>DP - library located at the centre of the campus </MenuItem>
+          <MenuItem value={30}>E7 - Engineering building at the north west side of the campus </MenuItem>
         </Select>
         <FormHelperText error>{props.Error ? "Please select a facility" : ""}</FormHelperText>
       </FormControl>
   )
+  }
+
+
+
+  const OpenHouseSports = (props) =>{
+    return(
+    <FormControl style={{marginBottom: "100px", width: "30%"}}>
+          <InputLabel id="movieValue">Select A Open House Sport</InputLabel>
+          <Select
+            displayEmpty
+            inputProps={{ 'aria-label': 'Without label' }}
+          >
+            <MenuItem value="">
+              <em>None</em>
+            </MenuItem>
+            <MenuItem value={10}>Basketball</MenuItem>
+            <MenuItem value={20}>Badminton</MenuItem>
+            <MenuItem value ={30}>Soccer</MenuItem>
+          </Select>
+          <FormHelperText error>{props.Error ? "Please select a Open House Sport" : ""}</FormHelperText>
+        </FormControl>
+    )
+  
 
 
   
@@ -42,18 +65,23 @@ return (
 
 
 
-    <div><NavBar></NavBar>
-    <FacilitySelection></FacilitySelection>
+
+<div><NavBar></NavBar>
+    <div><FacilitySelection></FacilitySelection>
+    <OpenHouseSports></OpenHouseSports></div>
+   
     </div>
   )
 
 
 
 
+
+
+
+ )
+
+
+
+
  }
-
-
-
-
-
-
