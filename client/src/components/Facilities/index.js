@@ -20,7 +20,7 @@ const FacilitySelection = (props) =>{
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={10}>Pac</MenuItem>
+          <MenuItem value={10}>Pac!</MenuItem>
           <MenuItem value={20}>CIF</MenuItem>
           <MenuItem value={20}>SLC</MenuItem>
           <MenuItem value={20}>DC</MenuItem>
