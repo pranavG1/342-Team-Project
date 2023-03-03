@@ -3,6 +3,8 @@ import { Router, Switch, Route } from "react-router-dom";
 import Facilities from "../Facilities";
 import Home from '../Home';
 import history from './history';
+import landing from '../Landing'
+
 
 export default function PrivateRoute({
   //authenticated,
@@ -12,7 +14,8 @@ export default function PrivateRoute({
 
     <Router history={history}>
       <Switch>
-      <Route path="/" exact component={Facilities} />
+      <Route path="/" exact component={landing} />
+      <Route path="/facilities" exact component={Facilities} />
       </Switch>
     </Router>
   );

@@ -3,6 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import {FormControl, MenuItem, Select, InputLabel, TextField, RadioGroup, FormLabel, Radio, FormControlLabel, Button, FormHelperText} from "@material-ui/core/"
 import React from "react"; 
+import NavBar from "../Navigation/Nav";
  
  
  export default function Facilities(){
@@ -11,7 +12,8 @@ import React from "react";
 
 const FacilitySelection = (props) =>{
   return(
-  <FormControl style={{marginBottom: "50px", width: "30%"}}>
+    
+    <FormControl style={{marginBottom: "50px", width: "30%"}}>
         <InputLabel id="movieValue">Select A Facility</InputLabel>
         <Select
           displayEmpty
@@ -35,12 +37,14 @@ const FacilitySelection = (props) =>{
   
 }
 
-
+///////ACTUAL DISPLAY
 return (
 
 
 
-    <div><FacilitySelection></FacilitySelection></div>
+    <div><NavBar></NavBar>
+    <FacilitySelection></FacilitySelection>
+    </div>
   )
 
 
