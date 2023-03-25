@@ -62,7 +62,7 @@ const opacityValue = 0.9;
   
   });
 
-export default function ReviewFacility(){
+export default function Filter(){
 
   const [facilityType, setFacilityType] = React.useState('');
   const [name, setName] = React.useState('');

@@ -22,7 +22,7 @@ app.post('/api/loadUserSettings', (req, res) => {
 	let sql = `SELECT mode FROM user WHERE userID = ?`;
 	console.log(sql);
 	let data = [userID];
-	console.log(data);
+	console.log("API REACHED");
 
 	connection.query(sql, data, (error, results, fields) => {
 		if (error) {
