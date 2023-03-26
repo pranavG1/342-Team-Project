@@ -110,7 +110,7 @@ const FacilitySelection = (props) =>{
 
 
   const handleSubmit = () => {
-
+    console.log("test")
     addFacility()
 
     console.log("test")
@@ -128,7 +128,6 @@ const FacilitySelection = (props) =>{
   }
 
   const callApiAddFacility = async () => {
-
     const url = serverURL + "/api/addFacility"
 
     const response = await fetch(url, {
